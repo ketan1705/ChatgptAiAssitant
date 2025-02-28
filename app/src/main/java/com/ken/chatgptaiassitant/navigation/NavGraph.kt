@@ -15,7 +15,7 @@ import kotlin.reflect.typeOf
 @Composable
 fun NavGraph() {
     val navController = rememberNavController()
-    val startDestination = Routes.Home
+    val startDestination = Routes.ChatScreen
 
     NavHost(navController = navController, startDestination = startDestination) {
         composable<Routes.Splash>

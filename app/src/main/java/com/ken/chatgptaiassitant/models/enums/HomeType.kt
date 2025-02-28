@@ -1,4 +1,4 @@
-package com.ken.chatgptaiassitant.components.home
+package com.ken.chatgptaiassitant.models.enums
 
 enum class HomeType(val type: String) {
     TextChat("Text Chat"),

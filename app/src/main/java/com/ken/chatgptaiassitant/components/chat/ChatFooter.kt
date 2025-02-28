@@ -24,19 +24,24 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.ken.chatgptaiassitant.ui.theme.lightBlue
 
 @Composable
 fun ChatFooter(
+    modifier: Modifier,
     onClick: (text: String) -> Unit,
 ) {
     var inputText by remember { mutableStateOf("") }
+    val keyboardController = LocalSoftwareKeyboardController.current
+
     Row(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.Center,
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .padding(10.dp)
     )
@@ -54,27 +59,26 @@ fun ChatFooter(
                 .weight(1f)
                 .padding(end = 10.dp),
             shape = RoundedCornerShape(10.dp),
-            singleLine = true,
             textStyle = TextStyle(color = Color.Black),
             colors = TextFieldDefaults.colors().copy(
-                focusedContainerColor = Color.Cyan.copy(0.6f),
-                unfocusedContainerColor = Color.Cyan.copy(0.6f),
+                focusedContainerColor = lightBlue.copy(0.9f),
+                unfocusedContainerColor = lightBlue.copy(0.9f),
                 unfocusedIndicatorColor = Color.Transparent,
                 focusedIndicatorColor = Color.Transparent
-            )
+            ),
         )
-
         IconButton(onClick = {
             onClick(inputText)
             inputText = ""
+            keyboardController?.hide()
         })
         {
             Icon(
                 Icons.AutoMirrored.Rounded.Send, contentDescription = "Send", tint = Color.Black,
                 modifier = Modifier
-                    .size(40.dp)
+                    .size(50.dp)
                     .clip(CircleShape)
-                    .background(Color.Cyan.copy(0.6f))
+                    .background(lightBlue.copy(0.9f))
                     .padding(8.dp)
             )
         }

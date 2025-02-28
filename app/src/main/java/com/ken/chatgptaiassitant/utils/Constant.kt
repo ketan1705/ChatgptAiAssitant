@@ -7,4 +7,6 @@ object Constant {
 
     //    const val TAG = "CHATGPTAIASSITANT"
     const val API_KEY = BuildConfig.API_KEY
+    const val ORG_ID = BuildConfig.ORG_ID
+    const val PROJECT_ID = BuildConfig.PROJECT_ID
 }

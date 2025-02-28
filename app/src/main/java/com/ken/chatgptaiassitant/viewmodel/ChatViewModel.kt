@@ -2,9 +2,9 @@ package com.ken.chatgptaiassitant.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.ken.chatgptaiassitant.models.CHATGPTMODEL
+import com.ken.chatgptaiassitant.models.enums.CHATGPTMODEL
 import com.ken.chatgptaiassitant.models.ChatModel
-import com.ken.chatgptaiassitant.models.ChatRole
+import com.ken.chatgptaiassitant.models.enums.ChatRole
 import com.ken.chatgptaiassitant.models.request.ChatRequestBody
 import com.ken.chatgptaiassitant.models.request.Message
 import com.ken.chatgptaiassitant.repository.ChatRepository
@@ -44,7 +44,7 @@ class ChatViewModel @Inject constructor(private val chatRepository: ChatReposito
 
     fun requestBody(message: String): ChatRequestBody {
         return ChatRequestBody(
-            model = CHATGPTMODEL.GPT35TURBO.model,
+            model = CHATGPTMODEL.GPT4oMINI.model,
             messages = listOf(
                 Message(
                     role = ChatRole.USER.role, content = message

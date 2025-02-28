@@ -26,7 +26,11 @@ android {
         val localProperties = Properties()
         localProperties.load(project.rootProject.file("local.properties").inputStream())
         val apiKey = localProperties.getProperty("API_KEY")
+        val orgId = localProperties.getProperty("ORG_ID")
+        val projectId = localProperties.getProperty("PROJECT_ID")
         buildConfigField("String", "API_KEY", "\"$apiKey\"")
+        buildConfigField("String", "ORG_ID", "\"$orgId\"")
+        buildConfigField("String", "PROJECT_ID", "\"$projectId\"")
     }
 
 
@@ -91,5 +95,5 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.retrofit.converter.gson)
     implementation(libs.okhttp)
-
+    implementation("androidx.constraintlayout:constraintlayout-compose:1.1.1")
 }

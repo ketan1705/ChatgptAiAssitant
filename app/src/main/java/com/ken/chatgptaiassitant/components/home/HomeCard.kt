@@ -22,6 +22,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ken.chatgptaiassitant.R
+import com.ken.chatgptaiassitant.models.enums.HomeType
 
 @Composable
 fun HomeCard(onClick: () -> Unit, modifier: Modifier = Modifier) {
@@ -63,62 +64,62 @@ fun HomeCard(onClick: () -> Unit, modifier: Modifier = Modifier) {
                 )
             }
         }
-        Card(
-            shape = RoundedCornerShape(16.dp),
-            colors = CardDefaults.cardColors(
-                Color.White
-            ),
-            modifier = modifier
-                .fillMaxWidth()
-        ) {
-            Row(
-                modifier = modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceEvenly,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Text(
-                    text = HomeType.ImageGenerator.type,
-                    fontWeight = FontWeight.W600,
-                    fontSize = 20.sp,
-                    modifier = modifier
-                        .padding(20.dp)
-                )
-                Image(
-                    painter = painterResource(id = R.drawable.chatbot),
-                    contentDescription = HomeType.ImageGenerator.type,
-                    modifier = modifier
-                        .padding(20.dp)
-                        .size(80.dp)
-                )
-            }
-        }
-        Card(
-            shape = RoundedCornerShape(16.dp),
-            colors = CardDefaults.cardColors(
-                Color.White
-            ),
-            modifier = modifier
-                .fillMaxWidth()
-        ) {
-            Row(
-                modifier = modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceEvenly,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Image(
-                    painter = painterResource(id = R.drawable.chatbot),
-                    contentDescription = HomeType.LanguageConverter.type,
-                    modifier = modifier
-                        .padding(20.dp)
-                        .size(80.dp)
-                )
-                Text(
-                    text = HomeType.LanguageConverter.type,
-                    fontSize = 20.sp,
-                    fontWeight = FontWeight.W600,
-                    modifier = modifier.padding(20.dp)
-                )
-            }
-        }
+        /*   Card(
+               shape = RoundedCornerShape(16.dp),
+               colors = CardDefaults.cardColors(
+                   Color.White
+               ),
+               modifier = modifier
+                   .fillMaxWidth()
+           ) {
+               Row(
+                   modifier = modifier.fillMaxWidth(),
+                   horizontalArrangement = Arrangement.SpaceEvenly,
+                   verticalAlignment = Alignment.CenterVertically
+               ) {
+                   Text(
+                       text = HomeType.ImageGenerator.type,
+                       fontWeight = FontWeight.W600,
+                       fontSize = 20.sp,
+                       modifier = modifier
+                           .padding(20.dp)
+                   )
+                   Image(
+                       painter = painterResource(id = R.drawable.chatbot),
+                       contentDescription = HomeType.ImageGenerator.type,
+                       modifier = modifier
+                           .padding(20.dp)
+                           .size(80.dp)
+                   )
+               }
+           }
+           Card(
+               shape = RoundedCornerShape(16.dp),
+               colors = CardDefaults.cardColors(
+                   Color.White
+               ),
+               modifier = modifier
+                   .fillMaxWidth()
+           ) {
+               Row(
+                   modifier = modifier.fillMaxWidth(),
+                   horizontalArrangement = Arrangement.SpaceEvenly,
+                   verticalAlignment = Alignment.CenterVertically
+               ) {
+                   Image(
+                       painter = painterResource(id = R.drawable.chatbot),
+                       contentDescription = HomeType.LanguageConverter.type,
+                       modifier = modifier
+                           .padding(20.dp)
+                           .size(80.dp)
+                   )
+                   Text(
+                       text = HomeType.LanguageConverter.type,
+                       fontSize = 20.sp,
+                       fontWeight = FontWeight.W600,
+                       modifier = modifier.padding(20.dp)
+                   )
+               }
+           }*/
     }
 }
