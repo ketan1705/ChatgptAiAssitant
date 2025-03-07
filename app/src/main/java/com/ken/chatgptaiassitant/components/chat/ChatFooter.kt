@@ -8,10 +8,13 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.Send
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
@@ -26,6 +29,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ken.chatgptaiassitant.ui.theme.lightBlue
@@ -52,23 +56,36 @@ fun ChatFooter(
                 Text(
                     text = "Type a message",
                     color = Color.Black,
-                    style = TextStyle(fontSize = 16.sp)
+                    fontSize = 18.sp,
+                    style = MaterialTheme.typography.bodyMedium
                 )
             },
             modifier = Modifier
                 .weight(1f)
                 .padding(end = 10.dp),
             shape = RoundedCornerShape(10.dp),
-            textStyle = TextStyle(color = Color.Black),
+            textStyle = TextStyle(color = Color.Black, fontSize = 18.sp),
             colors = TextFieldDefaults.colors().copy(
                 focusedContainerColor = lightBlue.copy(0.9f),
                 unfocusedContainerColor = lightBlue.copy(0.9f),
                 unfocusedIndicatorColor = Color.Transparent,
                 focusedIndicatorColor = Color.Transparent
             ),
+            keyboardOptions = KeyboardOptions.Default.copy(
+                imeAction = ImeAction.Send
+            ),
+            keyboardActions = KeyboardActions(
+                onSend = {
+                    if (inputText.isNotBlank()) {
+                        onClick(inputText.trim().toString())
+                        inputText = ""
+                        keyboardController?.hide()
+                    }
+                }
+            )
         )
         IconButton(onClick = {
-            onClick(inputText)
+            onClick(inputText.trim().toString())
             inputText = ""
             keyboardController?.hide()
         })

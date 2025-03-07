@@ -6,5 +6,6 @@ plugins {
     alias(libs.plugins.kotlin.serialization) apply false
     alias(libs.plugins.kotlin.parcelize) apply false
     id("com.google.dagger.hilt.android") version "2.51" apply false
-
+    alias(libs.plugins.google.gms.google.services) apply false
+    alias(libs.plugins.ksp) apply false
 }
