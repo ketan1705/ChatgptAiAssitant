@@ -39,6 +39,7 @@ fun ChatList(list: List<ChatModel>, modifier: Modifier = Modifier) {
         if (list.isNotEmpty())
             listState.animateScrollToItem(list.size - 1)
     }
+
     LazyColumn(
         state = listState,
         modifier = modifier.fillMaxSize(),
